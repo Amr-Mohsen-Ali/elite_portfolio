@@ -68,14 +68,19 @@ export default function App() {
             </ul>
           </Card>
 
-          <Card title="Contact">
-            <div className="button-row">
-              {CONTACT_LINKS.map(({ label, href, icon: Icon }) => (
-                <a key={label} className="button-link" href={href} target={label === "Email" ? undefined : "_blank"} rel={label === "Email" ? undefined : "noreferrer"}>
-                  <Icon size={16} />
-                  <span>{label}</span>
-                </a>
-              ))}
+          {CONTACT_LINKS.map(({ label, href, value, icon: Icon }) => (
+            href ? (
+              <a key={label} className="button-link" href={href} target="_blank" rel="noreferrer">
+                <Icon size={16} />
+                <span>{label}</span>
+              </a>
+            ) : (
+              <div key={label} className="button-link">
+                <Icon size={16} />
+                <span>{value}</span>
+              </div>
+            )
+          ))}
             </div>
           </Card>
         </motion.div>
