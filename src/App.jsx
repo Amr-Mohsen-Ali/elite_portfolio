@@ -3,7 +3,7 @@ import { Mail, Github, Linkedin } from "lucide-react";
 import "./App.css";
 
 const CONTACT_LINKS = [
-  { label: "Email", href: "mailto:amrmohsen5102@gmail.com", icon: Mail },
+  { label: "Email", value: "amrmohsen5102@gmail.com", icon: Mail },
   { label: "GitHub", href: "https://github.com/Amr-Mohsen-Ali", icon: Github },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/amr--mohsen/", icon: Linkedin },
 ];
