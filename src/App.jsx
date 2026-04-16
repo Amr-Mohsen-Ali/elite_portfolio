@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin } from "lucide-react";
 import "./App.css";
@@ -41,15 +42,32 @@ export default function App() {
   return (
     <div className="page-shell">
       <main className="content" aria-label="Amr Mohsen portfolio">
-        <motion.header className="card hero" initial={{ opacity: 0, y: -28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }}>
+        
+        {/* HERO */}
+        <motion.header
+          className="card hero"
+          initial={{ opacity: 0, y: -28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <h1>Amr Mohsen</h1>
           <p className="role">Machine Learning & AI Engineer | Data Specialist</p>
-          <p className="intro">Building intelligent systems that transform data into real-world solutions.</p>
+          <p className="intro">
+            Building intelligent systems that transform data into real-world solutions.
+          </p>
         </motion.header>
 
-        <motion.div className="cards-grid" variants={containerVariants} initial="hidden" animate="show">
+        {/* CONTENT */}
+        <motion.div
+          className="cards-grid"
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+        >
           <Card title="About Me">
-            <p>I specialize in data analysis, machine learning, and AI-driven solutions.</p>
+            <p>
+              I specialize in data analysis, machine learning, and AI-driven solutions.
+            </p>
           </Card>
 
           <Card title="Skills">
@@ -68,19 +86,27 @@ export default function App() {
             </ul>
           </Card>
 
-          {CONTACT_LINKS.map(({ label, href, value, icon: Icon }) => (
-            href ? (
-              <a key={label} className="button-link" href={href} target="_blank" rel="noreferrer">
-                <Icon size={16} />
-                <span>{label}</span>
-              </a>
-            ) : (
-              <div key={label} className="button-link">
-                <Icon size={16} />
-                <span>{value}</span>
-              </div>
-            )
-          ))}
+          <Card title="Contact">
+            <div className="button-row">
+              {CONTACT_LINKS.map(({ label, href, value, icon: Icon }) =>
+                href ? (
+                  <a
+                    key={label}
+                    className="button-link"
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Icon size={16} />
+                    <span>{label}</span>
+                  </a>
+                ) : (
+                  <div key={label} className="button-link">
+                    <Icon size={16} />
+                    <span>{value}</span>
+                  </div>
+                )
+              )}
             </div>
           </Card>
         </motion.div>
